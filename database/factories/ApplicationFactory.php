@@ -4,6 +4,6 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Application::class, function (Faker $faker) {
     return [
-        'subject' => $faker->word,
+        'subject' => $faker->text(100),
     ];
 });

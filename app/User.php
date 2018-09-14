@@ -31,10 +31,20 @@ class User extends Authenticatable
     /**
      * returns the users applications
      *
-     * @return Explorations
+     * @return Illuminate\Database\Eloquent\Relations\HasMany::class
      */
     public function applications()
     {
-        return $this->hasMany(\App\Applications::class);
+        return $this->hasMany(\App\Application::class);
+    }
+
+    /**
+     * Retrieves all companies
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasMany::class
+     */
+    public function companies()
+    {
+        return $this->hasMany(\App\Company::class);
     }
 }

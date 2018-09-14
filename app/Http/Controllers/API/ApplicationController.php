@@ -35,6 +35,7 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request, [
+            'subject' => 'required|string|min:4|max:255',
             'user_id' => 'required|integer|min:0',
             'company_id' => 'nullable|integer|min:0'
         ]);
@@ -66,6 +67,7 @@ class ApplicationController extends Controller
     public function update(Request $request, Application $application)
     {
         $data = $this->validate($request, [
+            'subject' => 'string|min:4|max:255',
             'send_at' => 'nullable',
             'company_id' => 'nullable|integer|min:0'
         ]);
@@ -89,10 +91,10 @@ class ApplicationController extends Controller
     }
 
     /**
-     * send and application per mail 
-     * 
-     * @param  Application $application 
-     * @return \App\Resources\ApplicationRessource                   
+     * send and application per mail
+     *
+     * @param  Application $application
+     * @return \App\Resources\ApplicationRessource
      */
     public function send(Application $application)
     {

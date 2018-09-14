@@ -15,6 +15,7 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('subject');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('company_id')->nullable();
             $table->datetime('send_at')->nullable();

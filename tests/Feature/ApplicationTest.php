@@ -55,7 +55,7 @@ class ApplicationTest extends TestCase
         $response->assertJsonFragment($data->toArray());
 
         $this->assertDatabaseHas('applications', $data->toArray());
-    //    $this->assertDatabaseMissing('applications', $application->toArray());
+        $this->assertDatabaseMissing('applications', $application->toArray());
     }
 
     /** @test */

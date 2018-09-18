@@ -17,7 +17,7 @@ abstract class TestCase extends BaseTestCase
         return $user;
     }
     
-    public function apiSignIn(array $attributes = []) : \App\User
+    protected function apiSignIn(array $attributes = []) : \App\User
     {
         $user = factory(\App\User::class)->create($attributes);
 

@@ -18,4 +18,6 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('applications', 'ApplicationController');
 
     Route::apiResource('companies', 'CompanyController');
+
+    Route::apiResource('jobs', 'JobController');
 });

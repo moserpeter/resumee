@@ -31,7 +31,7 @@ class User extends Authenticatable
     /**
      * returns the users applications
      *
-     * @return Illuminate\Database\Eloquent\Relations\HasMany::class
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function applications()
     {
@@ -41,10 +41,20 @@ class User extends Authenticatable
     /**
      * Retrieves all companies
      *
-     * @return Illuminate\Database\Eloquent\Relations\HasMany::class
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function companies()
     {
         return $this->hasMany(\App\Company::class);
+    }
+
+    /**
+     * Retrieves all Jobs
+     *
+     * @return Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function jobs()
+    {
+        return $this->hasManyThrough(\App\Job::class, \App\Company::class);
     }
 }

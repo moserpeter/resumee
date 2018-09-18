@@ -56,7 +56,7 @@ class CompanyTest extends TestCase
     /** @test */
     public function AUserCanViewACompany()
     {
-        $company = factory(\App\Company::class)->create(['user_id' => "1"]);
+        $company = factory(\App\Company::class)->create(['user_id' => "{$this->user->id}"]);
 
         $response = $this->json("GET", route('companies.show', $company));
         $response->assertSuccessful()

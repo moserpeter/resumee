@@ -13,9 +13,8 @@ class CompanyTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-    
-        $this->user = factory(\App\User::class)->create();
-        $this->be($this->user, 'api');
+
+        $this->user = $this->apiSignIn();
     }
 
     /** @test */
@@ -57,7 +56,7 @@ class CompanyTest extends TestCase
     /** @test */
     public function AUserCanViewACompany()
     {
-        $company = factory(\App\Company::class)->create(['user_id' => "{$this->user->id}"]);
+        $company = factory(\App\Company::class)->create(['user_id' => "1"]);
 
         $response = $this->json("GET", route('companies.show', $company));
         $response->assertSuccessful()
